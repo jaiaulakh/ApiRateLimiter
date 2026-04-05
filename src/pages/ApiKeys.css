@@ -1,0 +1,214 @@
+/* ───────── API Keys Page ───────── */
+.apikeys-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.apikeys-toolbar {
+  display: flex;
+}
+
+.apikeys-create {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  width: 100%;
+  animation: card-enter 0.3s ease-out;
+}
+
+@keyframes card-enter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.apikeys-create input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.apikeys-create input:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+}
+
+.apikeys-create input::placeholder {
+  color: var(--color-text-dim);
+}
+
+/* Table */
+.apikeys-table-wrap {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.apikeys-loading,
+.apikeys-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--color-text-dim);
+  font-size: 0.88rem;
+}
+
+.apikeys-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.apikeys-table thead {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.apikeys-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.apikeys-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.apikeys-table tbody tr {
+  transition: background 0.15s;
+}
+
+.apikeys-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.apikeys-table__row--revoked {
+  opacity: 0.5;
+}
+
+.apikeys-table__name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.apikeys-table__key {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.apikeys-table__key code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.apikeys-table__peek {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+  padding: 2px;
+}
+
+.apikeys-table__peek:hover {
+  opacity: 1;
+}
+
+.apikeys-table__reqs {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}
+
+.apikeys-table__date {
+  color: var(--color-text-dim);
+  font-size: 0.8rem;
+}
+
+.apikeys-table__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.apikeys-action {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  opacity: 0.6;
+  transition: all 0.15s;
+}
+
+.apikeys-action:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.apikeys-action--danger:hover {
+  background: var(--color-error-bg);
+}
+
+/* Badge */
+.apikeys-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.apikeys-badge--active {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.apikeys-badge--revoked {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+@media (max-width: 768px) {
+  .apikeys-table-wrap {
+    overflow-x: auto;
+  }
+
+  .apikeys-table {
+    min-width: 650px;
+  }
+
+  .apikeys-create {
+    flex-direction: column;
+  }
+
+  .apikeys-create input,
+  .apikeys-create .btn {
+    width: 100%;
+  }
+}
